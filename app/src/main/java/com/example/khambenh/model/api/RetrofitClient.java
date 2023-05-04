@@ -13,6 +13,7 @@ public class RetrofitClient {
 
     public static  ApiService getRetrofit() {
         Gson gson = new GsonBuilder()
+                .setDateFormat("HH:mm:ss")
                 .setLenient().create();
         retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
                 .addConverterFactory(ScalarsConverterFactory.create())

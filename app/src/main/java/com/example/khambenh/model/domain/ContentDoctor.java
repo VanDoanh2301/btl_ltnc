@@ -1,4 +1,4 @@
-package com.example.khambenh.model.adapter;
+package com.example.khambenh.model.domain;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -8,11 +8,12 @@ public class ContentDoctor {
     @SerializedName("content")
     private List<Doctor> content;
 
-    public ContentDoctor(List<Doctor> content) {
-        this.content = content;
-    }
 
     public ContentDoctor() {
+    }
+
+    public ContentDoctor(List<Doctor> content) {
+        this.content = content;
     }
 
     public List<Doctor> getContent() {

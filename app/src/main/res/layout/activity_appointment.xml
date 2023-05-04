@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Appointmentactivity">
+    tools:context=".AppointmentActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/Toolbar_view"
         android:layout_width="match_parent"
@@ -51,20 +51,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/category_index"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="date"
-                android:textColorHint="#3F51B5"
-                android:textSize="20sp"
-                android:hint="Giờ khám" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp">
-            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/category_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,7 +60,36 @@
                 android:textColorHint="#3F51B5"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Chuyên khoa"
+                android:inputType="time"
+                android:textSize="20sp"
+                android:textColorHint="#3F51B5"
+                android:drawableRight="@drawable/baseline_keyboard_arrow_right_24"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:textColorHint="#3F51B5"
+                android:textSize="20sp"
+                android:hint="Giờ khám"
+                android:drawableRight="@drawable/baseline_keyboard_arrow_right_24"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

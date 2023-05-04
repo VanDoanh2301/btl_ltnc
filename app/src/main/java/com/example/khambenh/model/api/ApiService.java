@@ -1,6 +1,6 @@
 package com.example.khambenh.model.api;
 
-import com.example.khambenh.model.adapter.ContentDoctor;
+import com.example.khambenh.model.domain.ContentDoctor;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
