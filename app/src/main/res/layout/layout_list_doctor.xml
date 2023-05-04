@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="10dp"
+    app:cardCornerRadius="20dp"
+    >
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_doctor"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="10dp"
+            android:src="@drawable/img_1"
+            app:shapeAppearance="@style/circular"
+            app:strokeWidth="5dp"
+            app:strokeColor="@color/purple_200"
+            />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/txt_pb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img_doctor"
+            android:text="thS.BS"
+            android:layout_marginStart="10dp"
+            />
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img_doctor"
+            android:fontFamily="sans-serif"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/txt_pb"
+            android:text="thS.BS"
+            android:layout_marginStart="10dp"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img_doctor"
+            android:layout_below="@id/txt_name"
+            android:text="thS.BS"
+            android:layout_marginStart="10dp"
+            />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:layout_below="@+id/img_doctor" >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_below="@id/img_doctor"
+            android:text="thS.BS"
+            android:textColor="#2196F3"
+            android:layout_marginStart="30dp"
+            />
+          <Button
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_weight="2"
+              android:text="Đặt khám"
+              android:textColor="#2196F3"
+              android:background="@drawable/custom_button"
+              />
+      </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+</androidx.cardview.widget.CardView>
