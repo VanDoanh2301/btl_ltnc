@@ -1,10 +1,12 @@
-package com.example.Ltnc.dto;
+package com.example.Ltnc.service.dto;
 
-import com.example.Ltnc.model.domain.Hospital;
-import jakarta.persistence.*;
+import com.example.Ltnc.model.domain.Specialist;
+import com.example.Ltnc.model.domain.Time;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Collection;
 
 @Data
 @AllArgsConstructor
@@ -23,5 +25,7 @@ public class DoctorDto {
 
     private String speciality;
 
-    private Hospital hospital;
+    private Specialist specialist;
+
+    private Collection<Time> times;
 }

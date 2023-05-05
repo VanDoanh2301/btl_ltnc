@@ -18,7 +18,7 @@ public class PatientDto {
 
     private String email;
 
-    private String phone;
+    private long phone;
 
     private String idCard;
 

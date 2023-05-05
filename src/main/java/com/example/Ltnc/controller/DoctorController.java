@@ -9,10 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -22,6 +19,7 @@ public class DoctorController {
     @Autowired
     private DoctorService doctorService;
 
+    //Get all doctor
     @GetMapping("/doctors")
     public  ResponseEntity<?> getAllDoctor(@RequestParam(value = "name",required = false) String name
             ,@RequestParam(value = "page") Optional<Integer> page
@@ -40,6 +38,14 @@ public class DoctorController {
         }
         return ResponseEntity.ok(resultPage);
     }
-
+    //Get doctor by id
+    @GetMapping("/doctors/{id}")
+    public ResponseEntity<?> getDoctorById(@PathVariable(name = "id") Long id) {
+        Optional<Doctor> doctor = doctorService.findById(id);
+        if (doctor.isEmpty()) {
+            return ResponseEntity.ok("Null");
+        }
+        return ResponseEntity.ok(doctor);
+    }
 
 }

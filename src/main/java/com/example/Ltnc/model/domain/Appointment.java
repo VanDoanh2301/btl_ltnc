@@ -1,5 +1,6 @@
 package com.example.Ltnc.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 @Data
 @Entity
-@Table(name = "appointments")
+@Table(name = "appointment")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Appointment {
@@ -19,20 +20,22 @@ public class Appointment {
     private Long id;
 
     @Column(name = "appointment_date", nullable = false)
-    private LocalDate appointmentDate;
+    private String appointmentDate;
 
-    @Column(name = "appointment_time", nullable = false)
-    private LocalTime appointmentTime;
+    @Column(name = "period", nullable = false, length = 225)
+    private String period;
 
     @Column(name = "note")
     private String note;
 
     @ManyToOne
-    @JoinColumn(name = "patientId", nullable = false)
+    @JsonIgnoreProperties(value = {"Appointment", "handler","hibernateLazyInitializer"}, allowSetters = true)
+    @JoinColumn(name = "patientId")
     private Patient patient;
 
     @ManyToOne
-    @JoinColumn(name = "doctorId", nullable = false)
+    @JsonIgnoreProperties(value = {"Appointment", "handler","hibernateLazyInitializer"}, allowSetters = true)
+    @JoinColumn(name = "doctorId")
     private Doctor doctor;
 
 

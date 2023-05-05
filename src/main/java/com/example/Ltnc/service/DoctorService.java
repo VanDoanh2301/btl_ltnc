@@ -77,4 +77,6 @@ public interface DoctorService {
     <S extends Doctor, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction);
 
     Page<Doctor> findByNameContaining(String name, Pageable pageable);
+
+    Doctor findByDoctorId(Long id);
 }

@@ -182,4 +182,9 @@ public class DoctorServiceImpl implements DoctorService {
     public Page<Doctor> findByNameContaining(String name, Pageable pageable) {
         return doctorRepo.findByNameContaining(name,pageable);
     }
+
+    @Override
+    public Doctor findByDoctorId(Long id) {
+        return doctorRepo.findByDoctorId(id);
+    }
 }
