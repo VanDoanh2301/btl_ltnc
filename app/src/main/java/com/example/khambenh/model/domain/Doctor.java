@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.sql.Time;
+import java.util.List;
 
 public class Doctor implements Serializable {
     @SerializedName("doctorId")
@@ -27,14 +27,6 @@ public class Doctor implements Serializable {
     @Expose
     private String phone;
 
-    @SerializedName("startTime")
-    @Expose
-    private String startTime;
-
-    @SerializedName("endTime")
-    @Expose
-    private String endTime;
-
     @SerializedName("day")
     @Expose
     private String day;
@@ -42,20 +34,33 @@ public class Doctor implements Serializable {
     @SerializedName("specialist")
     @Expose
     private Specialist specialist;
+    @SerializedName("times")
+    @Expose
+    private List<Time> times;
+
+
+
 
     public Doctor() {
     }
 
-    public Doctor(Long doctorId, String name, String avatar, String email, String phone, String startTime, String endTime, String day, Specialist specialist) {
+    public Doctor(Long doctorId, String name, String avatar, String email, String phone, String day, Specialist specialist, List<Time> times) {
         this.doctorId = doctorId;
         this.name = name;
         this.avatar = avatar;
         this.email = email;
         this.phone = phone;
-        this.startTime = startTime;
-        this.endTime = endTime;
         this.day = day;
         this.specialist = specialist;
+        this.times = times;
+    }
+
+    public List<Time> getTimes() {
+        return times;
+    }
+
+    public void setTimes(List<Time> times) {
+        this.times = times;
     }
 
     public Long getDoctorId() {
@@ -96,22 +101,6 @@ public class Doctor implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
     }
 
     public String getDay() {

@@ -1,5 +1,6 @@
-package com.example.khambenh.model.domain;
+package com.example.khambenh.model.content;
 
+import com.example.khambenh.model.domain.Doctor;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;

@@ -17,7 +17,7 @@ import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.List;
 
-public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorViewHolder> {
+public class DoctorDialogAdapter extends RecyclerView.Adapter<DoctorDialogAdapter.DoctorDialogViewHolder> {
 
     private Context context;
     private List<Doctor> doctors;
@@ -28,7 +28,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
         this.listener = listener;
     }
 
-    public DoctorAdapter(Context context) {
+    public DoctorDialogAdapter(Context context) {
         this.context = context;
     }
     public void setData(List<Doctor> doctors) {
@@ -38,22 +38,18 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
 
     @NonNull
     @Override
-    public DoctorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.layout_list_doctor, parent, false);
-        return new DoctorViewHolder(view);
+    public DoctorDialogViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_doctor_item, parent, false);
+        return new DoctorDialogViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DoctorViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DoctorDialogViewHolder holder, int position) {
         Doctor doctor = doctors.get(position);
         if (doctor == null) {
             return;
         }
-        Glide.with(context).load(doctor.getAvatar()).into(holder.imgAvatar);
-        holder.txtName.setText(doctor.getName());
-        holder.txtPhone.setText(doctor.getPhone());
-        holder.txtDay.setText(doctor.getDay());
-        holder.txtSpec.setText(doctor.getSpecialist().getSpecialistName());
+       holder.txtDtor.setText(doctor.getName());
     }
 
     public interface OnItemClickListener {
@@ -65,28 +61,14 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
         return (doctors == null) ? 0:doctors.size();
     }
 
-    public class DoctorViewHolder extends RecyclerView.ViewHolder {
-        private ShapeableImageView imgAvatar;
-        private TextView txtName,txtPhone,txtDay,txtSpec,txtDtor;
-        private CardView cardDoctor, carDtor;
-        public DoctorViewHolder(@NonNull View itemView) {
+    public class DoctorDialogViewHolder extends RecyclerView.ViewHolder {
+        private TextView txtDtor;
+        private CardView carDtor;
+        public DoctorDialogViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgAvatar = itemView.findViewById(R.id.img_doctor);
-            txtName = itemView.findViewById(R.id.txt_name);
-            txtDay = itemView.findViewById(R.id.txt_day);
-            txtPhone = itemView.findViewById(R.id.txt_phone);
-            txtSpec = itemView.findViewById(R.id.txt_spec);
+
             txtDtor = itemView.findViewById(R.id.txt_dtor);
-            cardDoctor = itemView.findViewById(R.id.card_doctor);
             carDtor = itemView.findViewById(R.id.card_dtor);
-            cardDoctor.setOnClickListener(v -> {
-                if (listener != null) {
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION) {
-                        listener.onItemClick(position);
-                    }
-                }
-            });
             carDtor.setOnClickListener(v -> {
                 if (listener != null) {
                     int position = getAdapterPosition();
