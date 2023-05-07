@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,12 +21,14 @@ import com.example.khambenh.controller.adapter.TimeAdapter;
 import com.example.khambenh.model.api.RetrofitClient;
 import com.example.khambenh.model.content.ContentDoctor;
 import com.example.khambenh.model.content.ContentSpecical;
+import com.example.khambenh.model.domain.Appointment;
 import com.example.khambenh.model.domain.Doctor;
 import com.example.khambenh.model.domain.Specialist;
 import com.example.khambenh.model.domain.Time;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -45,13 +48,13 @@ public class AppointmentActivity extends AppCompatActivity {
     private List<Doctor> doctors;
 
     private TextView txtGone;
-    private TextInputEditText edtGioKham, edtChuyenKhoa, edtBacsi;
+    private TextInputEditText edtGioKham, edtChuyenKhoa, edtBacsi, edtNgayKham,edtNote;
 
-    private Button backTime,btnSpec, btnDoctor;
+    private Button backTime,btnSpec, btnDoctor,btnNgayKham;
     private AlertDialog dialogC,dialogA,dialogB;
 
     private String period;
-    private Long specialistId;
+    private Long specialistId, doctorId;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,16 +66,33 @@ public class AppointmentActivity extends AppCompatActivity {
         doctorAdapter = new DoctorDialogAdapter(this);
 
         edtChuyenKhoa = findViewById(R.id.edt_chuyenkhoa);
+        edtNgayKham = findViewById(R.id.edt_ngaykham);
         edtGioKham = findViewById(R.id.edt_giokham);
         edtBacsi = findViewById(R.id.edt_bacsi);
+        edtNote = findViewById(R.id.edt_note);
 
+        btnNgayKham = findViewById(R.id.btnNgayKham);
         txtGone = findViewById(R.id.txt_gone);
         specialists = new ArrayList<>();
         doctors = new ArrayList<>();
         timeList = getListTime();
+
         showTime();
         showSpecial();
         showDoctor();
+
+        edtNgayKham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickEdtNgayKham();
+            }
+        });
+        btnNgayKham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveAppointment();
+            }
+        });
 
     }
 
@@ -120,10 +140,10 @@ public class AppointmentActivity extends AppCompatActivity {
         doctorAdapter.setOnItemClickListener(position -> {
             Doctor doctor = doctors.get(position);
             edtBacsi.setText(doctor.getName());
+            doctorId = doctor.getDoctorId();
             dialogB.dismiss();
         });
     }
-
 
     @SuppressLint("MissingInflatedId")
     private void showSpecial() {
@@ -203,9 +223,47 @@ public class AppointmentActivity extends AppCompatActivity {
 
             if(doctors != null) {
             edtBacsi.setVisibility(View.VISIBLE);}
-
             dialogA.dismiss();
 
+        });
+    }
+
+    private void onClickEdtNgayKham() {
+        Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                AppointmentActivity.this,
+                (view, year1, monthOfYear, dayOfMonth) -> {
+                    edtNgayKham.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year1);
+                },
+                year, month, day);
+        datePickerDialog.show();
+    }
+
+    private void saveAppointment() {
+        String ngayKham = edtNgayKham.getText().toString().trim();
+        String day = edtGioKham.getText().toString().trim();
+        String note = edtNote.getText().toString();
+        Appointment appointment = new Appointment(ngayKham, day, note, doctorId, 1L);
+        apiCreateAppointment(appointment);
+    }
+
+    private void apiCreateAppointment(Appointment appointment) {
+        RetrofitClient.getRetrofit().createAppointment(appointment).enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+
+                Toast.makeText(AppointmentActivity.this, "Save", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+                Toast.makeText(AppointmentActivity.this, "Call error", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

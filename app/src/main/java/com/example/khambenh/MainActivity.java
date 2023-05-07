@@ -113,4 +113,9 @@ public class MainActivity extends AppCompatActivity {
         images.add(new Image(R.drawable.img_2));
         return images;
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

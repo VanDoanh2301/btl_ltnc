@@ -4,6 +4,7 @@ import com.example.khambenh.model.content.ContentSpecical;
 import com.example.khambenh.model.domain.Appointment;
 import com.example.khambenh.model.content.ContentDoctor;
 import com.example.khambenh.model.domain.Doctor;
+import com.example.khambenh.model.domain.Patient;
 
 import java.util.List;
 
@@ -30,4 +31,11 @@ public interface ApiService {
     @Headers("Content-Type: application/json")
     @POST("newAppointment")
     Call<String> createAppointment(@Body Appointment appointment);
+
+
+    @POST("login")
+    Call<Patient> login(@Query("email") String email, @Query("password") String password);
+
+    @POST("newPatient")
+    Call<String> register(@Body Patient patient);
 }

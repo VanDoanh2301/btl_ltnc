@@ -76,9 +76,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
             txtDay = itemView.findViewById(R.id.txt_day);
             txtPhone = itemView.findViewById(R.id.txt_phone);
             txtSpec = itemView.findViewById(R.id.txt_spec);
-            txtDtor = itemView.findViewById(R.id.txt_dtor);
             cardDoctor = itemView.findViewById(R.id.card_doctor);
-            carDtor = itemView.findViewById(R.id.card_dtor);
             cardDoctor.setOnClickListener(v -> {
                 if (listener != null) {
                     int position = getAdapterPosition();
@@ -87,14 +85,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
                     }
                 }
             });
-            carDtor.setOnClickListener(v -> {
-                if (listener != null) {
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION) {
-                        listener.onItemClick(position);
-                    }
-                }
-            });
+
         }
     }
 }
