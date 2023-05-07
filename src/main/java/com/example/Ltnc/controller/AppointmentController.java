@@ -44,7 +44,7 @@ public class AppointmentController {
         appointment.setAppointmentDate(appointmentDto.getAppointmentDate());
         appointment.setPatient(patient);
         appointmentService.save(appointment);
-        return ResponseEntity.ok("Appointment created successfully");
+        return ResponseEntity.ok("successfully");
     }
 
 }

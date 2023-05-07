@@ -178,7 +178,8 @@ public class SpecialistServiceImpl implements SpecialistService {
         return specialistRepo.findBy(example, queryFunction);
     }
 
-
-
-
+    @Override
+    public Page<Specialist> findBySpecialistNameContaining(String specialistName, Pageable pageable) {
+        return specialistRepo.findBySpecialistNameContaining(specialistName, pageable);
+    }
 }

@@ -78,4 +78,6 @@ public interface TimeService {
     <S extends Time> boolean exists(Example<S> example);
 
     <S extends Time, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction);
+
+    Page<Time> findByPeriodContaining(String period, Pageable pageable);
 }

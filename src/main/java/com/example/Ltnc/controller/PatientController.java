@@ -28,40 +28,30 @@ public class PatientController {
 
     //Register patient
     @PostMapping("/newPatient")
-    public ResponseEntity<?> newPatient(@Valid @RequestBody PatientDto patientDto, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            List<String> errors = bindingResult.getAllErrors()
-                    .stream()
-                    .map(error -> error.getDefaultMessage())
-                    .collect(Collectors.toList());
-            return ResponseEntity.badRequest().body(errors);
-        }
+    public ResponseEntity<?> newPatient(@RequestBody PatientDto patientDto) {
+
         if (patientService.existsPatientByPhone(patientDto.getPhone())) {
-            return ResponseEntity.badRequest().body("Phone number already exists");
+            return ResponseEntity.ok("Phone number already exists");
         }
         if (patientService.existsPatientByIdCard(patientDto.getIdCard())) {
-            return ResponseEntity.badRequest().body("ID card number already exists");
+            return ResponseEntity.ok("ID card number already exists");
         }
         if(!isValidEmail(patientDto.getEmail())) {
-            return ResponseEntity.badRequest().body("Invalid email address");
+            return ResponseEntity.ok("Invalid email address");
         }
         if(StringUtils.isBlank(patientDto.getName())) {
-            return ResponseEntity.badRequest().body("Name is required");
+            return ResponseEntity.ok("Name is required");
         }
         if(StringUtils.isBlank(String.valueOf(patientDto.getPhone()))) {
-            return ResponseEntity.badRequest().body("Phone is required");
+            return ResponseEntity.ok("Phone is required");
         }
         if(StringUtils.isBlank(patientDto.getIdCard())) {
-            return ResponseEntity.badRequest().body("IdCard is required");
+            return ResponseEntity.ok("IdCard is required");
         }
-        if (patientDto.getPassword().length() < 8) {
-            return ResponseEntity.badRequest().body("Password phải từ 8 kí tự trở lên");
-        }
-
         Patient patient = new Patient();
         BeanUtils.copyProperties(patientDto, patient);
         patientService.save(patient);
-        return ResponseEntity.ok("Patient created successfully");
+        return ResponseEntity.ok("successfully");
     }
 
     private boolean isValidEmail(String email) {
@@ -78,5 +68,13 @@ public class PatientController {
         return ResponseEntity.ok(patient);
     }
 
-
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestParam(name = "email") String email, @RequestParam(name = "password") String password) {
+        Patient patient = patientService.findByEmailAndPassword(email, password);
+        if (patient != null) {
+            return ResponseEntity.ok(patient);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
+        }
+    }
 }

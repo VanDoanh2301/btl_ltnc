@@ -82,4 +82,6 @@ public interface PatientService {
     boolean existsPatientByIdCard(String idCard);
 
     Patient findByPatientId(Long id);
+
+    Patient findByEmailAndPassword(String email, String password);
 }

@@ -178,4 +178,9 @@ public class TimeServiceImpl implements TimeService {
     public <S extends Time, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction) {
         return timeRepo.findBy(example, queryFunction);
     }
+
+    @Override
+    public Page<Time> findByPeriodContaining(String period, Pageable pageable) {
+        return timeRepo.findByPeriodContaining(period, pageable);
+    }
 }

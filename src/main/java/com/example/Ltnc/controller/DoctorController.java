@@ -7,10 +7,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -47,5 +49,17 @@ public class DoctorController {
         }
         return ResponseEntity.ok(doctor);
     }
+
+    @GetMapping("/doctors/times")
+    public ResponseEntity<?> findDoctorsByPeriodAndSpecialist(
+            @RequestParam(name = "period") String period,
+            @RequestParam(name = "specialistId") Long specialistId) {
+        List<Doctor> doctors = doctorService.getDoctorTime(period, specialistId);
+        if(doctors.isEmpty()) {
+            return ResponseEntity.ok("Null");
+        }
+        return new ResponseEntity<>(doctors, HttpStatus.OK);
+    }
+
 
 }

@@ -12,7 +12,6 @@ import java.util.Date;
 @NoArgsConstructor
 public class PatientDto {
 
-    private Long patientId;
 
     private String name;
 

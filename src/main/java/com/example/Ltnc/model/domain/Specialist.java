@@ -25,4 +25,5 @@ public class Specialist {
 
    @OneToMany(mappedBy = "specialist")
    private Collection<Doctor> doctors;
+
 }

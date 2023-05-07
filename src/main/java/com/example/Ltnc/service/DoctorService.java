@@ -79,4 +79,6 @@ public interface DoctorService {
     Page<Doctor> findByNameContaining(String name, Pageable pageable);
 
     Doctor findByDoctorId(Long id);
+
+    List<Doctor> getDoctorTime(String period, Long specialistId);
 }

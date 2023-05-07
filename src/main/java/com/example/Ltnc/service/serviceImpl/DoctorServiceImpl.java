@@ -187,4 +187,10 @@ public class DoctorServiceImpl implements DoctorService {
     public Doctor findByDoctorId(Long id) {
         return doctorRepo.findByDoctorId(id);
     }
+
+    @Override
+    public List<Doctor> getDoctorTime(String period, Long specialistId) {
+        return doctorRepo.getDoctorTime(period, specialistId);
+    }
+
 }

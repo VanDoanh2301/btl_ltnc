@@ -195,4 +195,9 @@ public class PatientServiceImpl implements PatientService {
     public Patient findByPatientId(Long id) {
         return patientRepo.findByPatientId(id);
     }
+
+    @Override
+    public Patient findByEmailAndPassword(String email, String password) {
+        return patientRepo.findByEmailAndPassword(email, password);
+    }
 }
