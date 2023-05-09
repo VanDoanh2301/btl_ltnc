@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Intent i = new Intent(this, LoginActivity.class);
             startActivity(i);
+            finish();
         }
     }
 

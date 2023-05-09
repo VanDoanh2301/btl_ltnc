@@ -3,11 +3,13 @@ package com.example.khambenh.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.khambenh.R;
 import com.example.khambenh.model.api.RetrofitClient;
@@ -25,6 +27,9 @@ RegisterActivity extends AppCompatActivity {
     private EditText edtName, edtAddress, edtDate, edtIdCard, edtPhone, edtEmail, edtPassword;
     private AppCompatButton btnRegister;
 
+    private Toolbar toolbar;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +42,9 @@ RegisterActivity extends AppCompatActivity {
         edtPhone = findViewById(R.id.phone_edt);
         edtEmail = findViewById(R.id.email_edt);
         edtPassword = findViewById(R.id.passwords_edt);
+        toolbar = findViewById(R.id.tool_register);
+
+        toolbar.setNavigationOnClickListener(v -> finish());
 
 
         btnRegister = findViewById(R.id.btn_register);
