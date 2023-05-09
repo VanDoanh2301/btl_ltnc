@@ -4,123 +4,170 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AppointmentDoctorActivity"
+    tools:context=".activity.AppointmentDoctorActivity"
     android:orientation="vertical"
     >
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/Toolbar_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:navigationIcon="?attr/homeAsUpIndicator"
-        app:title="Đặt lịch khám"
-        app:titleMarginStart="80dp" />
+        app:titleMarginStart="80dp" >
+        <ImageView
+            android:id="@+id/icon_close_dt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_close_24"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Đặt lịch theo bác sĩ"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
     <LinearLayout
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundMode="outline"
+            app:startIconDrawable="@drawable/baseline_person_24"
+            app:endIconMode="clear_text"
+            android:hint="Tên"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp">
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                android:id="@+id/txtInName_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:textColorHint="#3F51B5"
                 android:textSize="20sp"
-                android:hint="Tên" />
+                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundMode="outline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Bác sĩ"
             android:layout_margin="10dp">
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:id="@+id/txt_bs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Bác sĩ"
-                android:inputType="time"
+
                 android:textSize="20sp"
                 android:textColorHint="#3F51B5"
                 android:drawableRight="@drawable/baseline_keyboard_arrow_right_24"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundMode="outline"
+            android:hint="Chuyên Khoa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp">
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:id="@+id/txt_chuyenkhoa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Chuyên Khoa"
-                android:inputType="time"
                 android:textSize="20sp"
                 android:textColorHint="#3F51B5"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundMode="outline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Ngày khám"
             android:layout_margin="10dp">
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:id="@+id/txt_ngaykham"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ngày khám"
-                android:inputType="time"
+                android:focusable="false"
+                android:inputType="none"
                 android:textSize="20sp"
                 android:textColorHint="#3F51B5"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundMode="outline"
             android:layout_width="match_parent"
+            android:hint="Giờ khám"
             android:layout_height="wrap_content"
             android:layout_margin="10dp">
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:id="@+id/txt_giokham"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date"
                 android:textColorHint="#3F51B5"
                 android:textSize="20sp"
-                android:hint="Giờ khám"
+
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundMode="outline"
             android:layout_width="match_parent"
+            android:hint="Ghi chú"
+            app:counterEnabled="true"
+            app:counterMaxLength="200"
             android:layout_height="wrap_content"
             android:layout_margin="10dp">
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:id="@+id/txt_note"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
+                android:gravity="top"
                 android:textColorHint="#3F51B5"
                 android:textSize="20sp"
-                android:hint="Ghi chú" />
+                 />
         </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/btn_save"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Đặt lịch"
-                android:textStyle="italic"
-                android:textSize="20sp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/custom_button"
-                android:enabled="true"
-                />
+
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Đặt lịch"
+            android:textSize="20sp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/custom_button"
+            android:enabled="true"
+            android:layout_marginBottom="10dp"
+            />
+    </RelativeLayout>
 
 </LinearLayout>

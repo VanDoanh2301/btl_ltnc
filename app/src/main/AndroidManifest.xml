@@ -11,26 +11,36 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:name=".MyApplication"
         android:theme="@style/Theme.KhamBenh"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activity.InforAppointmentIdActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.InforAppointmentActivity"
             android:exported="false" />
         <activity
-            android:name=".AppointmentDoctorActivity"
+            android:name=".activity.InforPatientActivity"
             android:exported="false" />
         <activity
-            android:name=".AppointmentActivity"
+            android:name=".activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".DoctorActivity"
+            android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.AppointmentDoctorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.DoctorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

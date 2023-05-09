@@ -6,22 +6,22 @@
 <group>
     <item android:title="Điều khoản dịch vụ"
         android:id="@+id/mn_dk"
-        android:icon="@drawable/img"
+        android:icon="@drawable/baseline_design_services_24"
          />
     <item android:title="Chính sách bảo mật"
-        android:icon="@drawable/img"
+        android:icon="@drawable/baseline_security_24"
         android:id="@+id/mn_cs"
         />
     <item android:title="Các vấn đề thường gặp"
-        android:icon="@drawable/img"
-        android:id="@+id/mn_ch"
+        android:icon="@drawable/baseline_help_24"
+        android:id="@+id/mn_tg"
         />
     <item android:title="Liên hệ"
-        android:icon="@drawable/img"
+        android:icon="@drawable/baseline_connect_without_contact_24"
         android:id="@+id/mn_lh"
         />
     <item android:title="Giới thiệu"
-        android:icon="@drawable/img"
+        android:icon="@drawable/baseline_recommend_24"
         android:id="@+id/mn_gt"
         />
 </group>
@@ -30,7 +30,7 @@
             />
         <item
             android:id="@+id/mn_logout"
-            android:icon="@drawable/baseline_maps_home_work_24"
+            android:icon="@drawable/baseline_logout_24"
             android:title="Đăng xuất" />
     </group>
 </menu>

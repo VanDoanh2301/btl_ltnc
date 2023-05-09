@@ -28,11 +28,11 @@ public class Appointment implements Serializable {
 
     @SerializedName("patient")
     @Expose
-    private Patient patient;
+    private String patient;
 
     @SerializedName("doctor")
     @Expose
-    private Doctor doctor;
+    private Long doctor;
 
 
     public Appointment() {
@@ -94,19 +94,19 @@ public class Appointment implements Serializable {
         this.patientId = patientId;
     }
 
-    public Patient getPatient() {
+    public String getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(String patient) {
         this.patient = patient;
     }
 
-    public Doctor getDoctor() {
+    public Long getDoctor() {
         return doctor;
     }
 
-    public void setDoctor(Doctor doctor) {
+    public void setDoctor(Long doctor) {
         this.doctor = doctor;
     }
 }

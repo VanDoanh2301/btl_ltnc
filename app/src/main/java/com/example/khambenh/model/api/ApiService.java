@@ -28,6 +28,13 @@ public interface ApiService {
 
     @GET("doctors/{id}")
     Call<Doctor> getDoctorId(@Path("id") Long id);
+
+    @GET("doctors")
+    Call<ContentDoctor> searchDoctor(@Query("name") String name);
+
+    @GET("patients")
+    Call<Patient> getPatientByEmail(@Query("email") String email);
+
     @Headers("Content-Type: application/json")
     @POST("newAppointment")
     Call<String> createAppointment(@Body Appointment appointment);
@@ -38,4 +45,9 @@ public interface ApiService {
 
     @POST("newPatient")
     Call<String> register(@Body Patient patient);
+
+    @GET("appointment/{patientId}")
+    Call<List<Appointment>> getAppointmentByPatientId(@Path("patientId") Long patientId);
+    @GET("appointments/{id}")
+    Call<Appointment> getAppointmentId(@Path("id") Long id);
 }

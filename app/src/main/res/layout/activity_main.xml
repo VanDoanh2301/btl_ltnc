@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,35 +14,42 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBar"
+            android:id="@+id/tl_bar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="#2196F3"
-            app:navigationIcon="@drawable/baseline_menu_24"
-            app:title="TabLayout">
-
+           >
+            <ImageView
+                android:id="@+id/action_view_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_menu_24"
+                />
             <RelativeLayout
-                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_width="?actionBarSize"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/shape_img"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/img"
                     app:shapeAppearance="@style/circular"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerCrop"
                     app:strokeWidth="5dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_toRightOf="@+id/shape_img"
-                    android:text="HOME"
-                    android:textColor="@color/white"
-                    android:textSize="34sp"
-                    android:textStyle="bold" />
             </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center"
+                android:text="DATS"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
         </androidx.appcompat.widget.Toolbar>
 
         <LinearLayout
@@ -70,6 +77,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_toRightOf="@+id/img_phone"
                     android:text="Tư vấn chuyên khoa"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     android:textColor="@color/white" />
 
                 <TextView
@@ -78,6 +87,7 @@
                     android:layout_below="@+id/txt_tv"
                     android:layout_marginStart="10dp"
                     android:layout_toRightOf="@+id/img_phone"
+                    android:layout_marginTop="5dp"
                     android:text="19098439"
                     android:textColor="@color/white" />
 
@@ -100,7 +110,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:textStyle="bold"
                     android:layout_toRightOf="@+id/img_phoneht"
+                    android:textSize="16sp"
                     android:text="Tư vấn chuyên khoa"
                     android:textColor="@color/white" />
 
@@ -110,6 +122,7 @@
                     android:layout_below="@+id/txt_tvht"
                     android:layout_marginStart="10dp"
                     android:layout_toRightOf="@+id/img_phoneht"
+                    android:layout_marginTop="5dp"
                     android:text="19098439"
                     android:textColor="@color/white" />
             </RelativeLayout>
@@ -125,13 +138,13 @@
             android:id="@+id/circle_photo"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             />
         <androidx.cardview.widget.CardView
             android:id="@+id/crd_home"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="match_parent"
             android:layout_margin="10dp"
             app:cardCornerRadius="10dp">
 
@@ -157,24 +170,26 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/btn_hs"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/custom_button_main"
-                        android:drawableTop="@drawable/icons9"
+                        android:drawableTop="@drawable/baseline_insert_drive_file_24"
                         android:fontFamily="sans-serif"
                         android:padding="5dp"
                         android:text="Quản lý hồ sơ bệnh nhân"
                         android:textStyle="normal" />
 
                     <Button
+                        android:id="@+id/btn_phieu"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/custom_button_main"
-                        android:drawableTop="@drawable/icons9"
+                        android:drawableTop="@drawable/baseline_card_travel_24"
                         android:fontFamily="sans-serif"
                         android:padding="5dp"
                         android:text="Quản lý phiếu khám bệnh"
@@ -186,31 +201,33 @@
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/custom_button_main"
-                        android:drawableTop="@drawable/icons9"
+                        android:drawableTop="@drawable/baseline_speaker_notes_24"
                         android:fontFamily="sans-serif"
                         android:padding="5dp"
                         android:text="Hướng dẫn đặt lịch "
                         android:textStyle="normal" />
                 </LinearLayout>
             </LinearLayout>
+            <Button
+                android:id="@+id/btn_datlich"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/abeezee_regular"
+                android:layout_gravity="bottom"
+                android:background="@drawable/custom_button_lk"
+                android:text="Đặt lịch khám" />
         </androidx.cardview.widget.CardView>
-        <Button
-            android:id="@+id/btn_datlich"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:background="@drawable/custom_button_lk"
-            android:text="Đặt lịch khám" />
+
 
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation"
+        android:id="@+id/navi_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/layout_navigation_view"
         app:menu="@menu/custom_menu"
-        app:divider="@drawable/list_divider" />
+         />
 </androidx.drawerlayout.widget.DrawerLayout>

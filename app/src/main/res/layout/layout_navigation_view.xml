@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="110dp"
+    android:layout_height="130dp"
     android:background="#2196F3"
     >
 <RelativeLayout
@@ -22,12 +22,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_toRightOf="@+id/shape_img"
-        android:text="HOME"
+        android:text="DATS"
         android:textColor="@color/white"
         android:textSize="34sp"
         android:textStyle="bold" />
     <TextView
-        android:id="@+id/txt_tk"
+        android:id="@+id/txt_tk_name"
         android:layout_below="@+id/shape_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,9 +36,9 @@
         android:gravity="center"
         />
     <TextView
-        android:id="@+id/txt_name"
+        android:id="@+id/txt_name_tk"
         android:layout_below="@+id/shape_img"
-        android:layout_toRightOf="@+id/txt_tk"
+        android:layout_toRightOf="@+id/txt_tk_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
