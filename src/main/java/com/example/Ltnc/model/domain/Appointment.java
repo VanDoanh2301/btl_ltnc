@@ -80,6 +80,9 @@ public class Appointment {
     }
 
     public String getPatient() {
+        if(patient == null) {
+            return "null";
+        }
         return patient.getName();
     }
 
@@ -87,8 +90,11 @@ public class Appointment {
         this.patient = patient;
     }
 
-    public String getDoctor() {
-        return doctor.getName();
+    public Long getDoctor() {
+        if(doctor == null) {
+            return null;
+        }
+        return doctor.getDoctorId();
     }
 
     public void setDoctor(Doctor doctor) {

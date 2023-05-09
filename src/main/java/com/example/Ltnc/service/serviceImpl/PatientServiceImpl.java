@@ -200,4 +200,9 @@ public class PatientServiceImpl implements PatientService {
     public Patient findByEmailAndPassword(String email, String password) {
         return patientRepo.findByEmailAndPassword(email, password);
     }
+
+    @Override
+    public Patient findByEmail(String email) {
+        return patientRepo.findByEmail(email);
+    }
 }

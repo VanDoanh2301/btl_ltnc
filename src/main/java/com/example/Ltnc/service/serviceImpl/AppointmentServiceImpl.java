@@ -191,4 +191,9 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentRepo.findBy(example, queryFunction);
     }
 
+
+    @Override
+    public List<Appointment> findByPatientId(Long patientId) {
+        return appointmentRepo.findByPatientId(patientId);
+    }
 }

@@ -84,4 +84,6 @@ public interface AppointmentService {
     <S extends Appointment> boolean exists(Example<S> example);
 
     <S extends Appointment, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction);
+
+    List<Appointment> findByPatientId(Long patientId);
 }

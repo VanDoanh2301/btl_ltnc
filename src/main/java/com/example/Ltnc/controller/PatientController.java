@@ -77,4 +77,12 @@ public class PatientController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
         }
     }
+    @GetMapping("/patients")
+    public ResponseEntity<?> getDoctorByEmail(@RequestParam(name = "email") String email) {
+        Patient patient = patientService.findByEmail(email);
+        if (patient == null) {
+            return ResponseEntity.ok("Null");
+        }
+        return ResponseEntity.ok(patient);
+    }
 }

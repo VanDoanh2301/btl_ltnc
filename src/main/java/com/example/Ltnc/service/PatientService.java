@@ -84,4 +84,6 @@ public interface PatientService {
     Patient findByPatientId(Long id);
 
     Patient findByEmailAndPassword(String email, String password);
+
+    Patient findByEmail(String email);
 }
