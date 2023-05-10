@@ -3,14 +3,10 @@ package com.example.khambenh.model.domain;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Patient implements Serializable {
+public class PatientDto {
 
-    @SerializedName("patientId")
-    @Expose
-    private Long patientId;
 
     @SerializedName("name")
     @Expose
@@ -32,46 +28,25 @@ public class Patient implements Serializable {
     @Expose
 
     private String address;
-    @SerializedName("birthYear")
-    @Expose
-    private Date birthYear;
 
     @SerializedName("password")
     @Expose
     private String password;
 
-    private String dateDay;
 
-    public Patient(String name, String email, long phone, String idCard, String address, String password, String dateDay) {
+    private String birthYear;
+
+    public PatientDto(String name, String email, long phone, String idCard, String address, String password, String birthYear) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.idCard = idCard;
         this.address = address;
         this.password = password;
-        this.dateDay = dateDay;
-    }
-
-    public Patient() {
-    }
-
-
-    public Patient(String name, String email, long phone, String idCard, String address, String password,Date birthYear) {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.idCard = idCard;
-        this.address = address;
         this.birthYear = birthYear;
-        this.password = password;
     }
 
-    public Long getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(Long patientId) {
-        this.patientId = patientId;
+    public PatientDto() {
     }
 
     public String getName() {
@@ -114,14 +89,6 @@ public class Patient implements Serializable {
         this.address = address;
     }
 
-    public Date getBirthYear() {
-        return birthYear;
-    }
-
-    public void setBirthYear(Date birthYear) {
-        this.birthYear = birthYear;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -130,11 +97,11 @@ public class Patient implements Serializable {
         this.password = password;
     }
 
-    public String getDateDay() {
-        return dateDay;
+    public String getBirthYear() {
+        return birthYear;
     }
 
-    public void setDateDay(String dateDay) {
-        this.dateDay = dateDay;
+    public void setBirthYear(String birthYear) {
+        this.birthYear = birthYear;
     }
 }

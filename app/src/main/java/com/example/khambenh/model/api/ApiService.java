@@ -5,6 +5,7 @@ import com.example.khambenh.model.domain.Appointment;
 import com.example.khambenh.model.content.ContentDoctor;
 import com.example.khambenh.model.domain.Doctor;
 import com.example.khambenh.model.domain.Patient;
+import com.example.khambenh.model.domain.PatientDto;
 
 import java.util.List;
 
@@ -44,7 +45,7 @@ public interface ApiService {
     Call<Patient> login(@Query("email") String email, @Query("password") String password);
 
     @POST("newPatient")
-    Call<String> register(@Body Patient patient);
+    Call<String> register(@Body PatientDto patient);
 
     @GET("appointment/{patientId}")
     Call<List<Appointment>> getAppointmentByPatientId(@Path("patientId") Long patientId);

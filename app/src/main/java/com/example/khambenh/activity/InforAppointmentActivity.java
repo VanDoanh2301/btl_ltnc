@@ -72,6 +72,10 @@ public class InforAppointmentActivity extends AppCompatActivity {
         RetrofitClient.getRetrofit().getAppointmentByPatientId(patientId).enqueue(new Callback<List<Appointment>>() {
             @Override
             public void onResponse(Call<List<Appointment>> call, Response<List<Appointment>> response) {
+                if(response.body() == null) {
+                    Toast.makeText(InforAppointmentActivity.this, "Danh sach trong", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 List<Appointment> app = response.body();
                 appointments.addAll(app);
                 adapter.setData(appointments);

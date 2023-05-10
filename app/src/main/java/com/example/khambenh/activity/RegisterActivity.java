@@ -2,6 +2,7 @@ package com.example.khambenh.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -9,13 +10,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.example.khambenh.R;
 import com.example.khambenh.model.api.RetrofitClient;
-import com.example.khambenh.model.domain.Patient;
+import com.example.khambenh.model.domain.PatientDto;
+
 
 import java.util.Calendar;
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +30,7 @@ RegisterActivity extends AppCompatActivity {
     private AppCompatButton btnRegister;
 
     private Toolbar toolbar;
+    private Date date;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -44,6 +47,7 @@ RegisterActivity extends AppCompatActivity {
         edtPassword = findViewById(R.id.passwords_edt);
         toolbar = findViewById(R.id.tool_register);
 
+
         toolbar.setNavigationOnClickListener(v -> finish());
 
 
@@ -54,24 +58,19 @@ RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String name = edtName.getText().toString().trim();
                 String address = edtAddress.getText().toString().trim();
-                String dateStr = edtDate.getText().toString().trim();
+                String dateStr = edtDate.getText().toString();
                 String idCard = edtIdCard.getText().toString().trim();
                 Long phone = Long.valueOf(edtPhone.getText().toString().trim());
                 String email = edtEmail.getText().toString().trim();
                 String password = edtPassword.getText().toString();
-                Patient patient = new Patient(name, email, phone, idCard, address, password, dateStr);
+                PatientDto patient = new PatientDto(name, email, phone, idCard, address,password,dateStr);
                 createPatient(patient);
 
 
             }
         });
 
-        edtDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClickDate();
-            }
-        });
+        edtDate.setOnClickListener(v -> onClickDate());
     }
 
     private void onClickDate() {
@@ -89,7 +88,7 @@ RegisterActivity extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    private void createPatient(Patient patient) {
+    private void createPatient(PatientDto patient) {
         RetrofitClient.getRetrofit().register(patient).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {

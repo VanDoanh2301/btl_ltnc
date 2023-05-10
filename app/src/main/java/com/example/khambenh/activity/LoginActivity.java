@@ -81,7 +81,6 @@ public class LoginActivity extends AppCompatActivity {
         RetrofitClient.getRetrofit().login(email, password).enqueue(new Callback<Patient>() {
             @Override
             public void onResponse(Call<Patient> call, Response<Patient> response) {
-
                 patient = response.body();
                 patientName = patient.getName();
                 patientId = patient.getPatientId();
