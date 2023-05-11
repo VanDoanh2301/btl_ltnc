@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -64,6 +65,38 @@ RegisterActivity extends AppCompatActivity {
                 String email = edtEmail.getText().toString().trim();
                 String password = edtPassword.getText().toString();
                 PatientDto patient = new PatientDto(name, email, phone, idCard, address,password,dateStr);
+                if (TextUtils.isEmpty(name)) {
+                    edtName.setError("Input text");
+                    return;
+                }
+                if (TextUtils.isEmpty(name)) {
+                    edtName.setError("Input text");
+                    return;
+                }
+                if (TextUtils.isEmpty(address)) {
+                    edtAddress.setError("Input text");
+                    return;
+                }
+                if (TextUtils.isEmpty(dateStr)) {
+                    edtDate.setError("Input text");
+                    return;
+                }
+                if (TextUtils.isEmpty(idCard)) {
+                    edtIdCard.setError("Input text");
+                    return;
+                }
+                if (TextUtils.isEmpty(edtPhone.getText().toString())) {
+                    edtPhone.setError("Input text");
+                    return;
+                }
+                if (TextUtils.isEmpty(email)) {
+                    edtEmail.setError("Input text");
+                    return;
+                }
+                if (TextUtils.isEmpty(password)) {
+                    edtPassword.setError("Input text");
+                    return;
+                }
                 createPatient(patient);
 
 
@@ -94,18 +127,23 @@ RegisterActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.body().equals("Phone number already exists")) {
                     Toast.makeText(RegisterActivity.this, "Phone is required", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (response.body().equals("ID card number already exists")) {
                     Toast.makeText(RegisterActivity.this, "ID card number already exists", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (response.body().equals("Invalid email address")) {
                     Toast.makeText(RegisterActivity.this, "Invalid email address", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (response.body().equals("Name is required")) {
                     Toast.makeText(RegisterActivity.this, "Name is required", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (response.body().equals("IdCard is required")) {
                     Toast.makeText(RegisterActivity.this, "IdCard is required", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (response.body().equals("successfully")) {
                     Toast.makeText(RegisterActivity.this, "Đăng kí thành công", Toast.LENGTH_SHORT).show();

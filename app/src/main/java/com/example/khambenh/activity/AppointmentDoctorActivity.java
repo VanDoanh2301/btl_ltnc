@@ -7,6 +7,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -99,6 +100,21 @@ public class AppointmentDoctorActivity extends AppCompatActivity {
         String day = txtGioKham.getText().toString().trim();
         String note = txtNote.getText().toString();
         Appointment appointment = new Appointment(ngayKham, day, note, doctorId, id);
+
+        if(TextUtils.isEmpty(ngayKham)) {
+            txtNgayKham.setError("Input text");
+
+        }
+
+        if(TextUtils.isEmpty(day)) {
+            txtGioKham.setError("Input text");
+
+        }
+
+        if(TextUtils.isEmpty(note)) {
+            txtNote.setError("Input text");
+
+        }
         apiCreateAppointment(appointment);
     }
 

@@ -29,7 +29,7 @@
 
     </androidx.appcompat.widget.Toolbar>
     <LinearLayout
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -45,7 +45,6 @@
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="#0288D1"
             app:boxStrokeErrorColor="@color/purple_200"
-
             app:endIconMode="clear_text"
             app:hintTextColor="#1976D2"
             app:startIconDrawable="@drawable/baseline_person_24">
@@ -91,6 +90,7 @@
             android:layout_margin="10dp"
             android:hint="Chuyên khoa"
             android:textColorHint="#0288D1"
+            app:errorEnabled="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/purple_700"
@@ -125,6 +125,7 @@
                 style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:errorEnabled="true"
                 android:drawableRight="@drawable/baseline_keyboard_arrow_down_24"
                 android:focusable="false"
                 android:inputType="none"
@@ -166,6 +167,7 @@
             app:boxStrokeColor="@color/purple_700"
             app:boxStrokeErrorColor="@color/purple_200"
             app:counterEnabled="true"
+            app:errorEnabled="true"
             app:counterMaxLength="200">
 
             <com.google.android.material.textfield.TextInputEditText

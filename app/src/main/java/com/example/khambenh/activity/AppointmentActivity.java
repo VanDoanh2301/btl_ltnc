@@ -11,6 +11,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -77,6 +78,7 @@ public class AppointmentActivity extends AppCompatActivity {
         imgClose= findViewById(R.id.icon_close_view);
         edtName = findViewById(R.id.txtInName);
         edtNote = findViewById(R.id.edt_note);
+
 
 
 
@@ -262,6 +264,22 @@ public class AppointmentActivity extends AppCompatActivity {
         String day = edtGioKham.getText().toString().trim();
         String note = edtNote.getText().toString();
         Appointment appointment = new Appointment(ngayKham, day, note, doctorId, patientId);
+
+
+        if(TextUtils.isEmpty(ngayKham)) {
+            edtNgayKham.setError("Input text");
+            return;
+
+        }
+        if(TextUtils.isEmpty(day)) {
+            edtGioKham.setError("Input text");
+            return;
+        }
+        if(TextUtils.isEmpty(note)) {
+            edtNote.setError("Input text");
+            return;
+
+        }
         apiCreateAppointment(appointment);
     }
 
@@ -269,8 +287,10 @@ public class AppointmentActivity extends AppCompatActivity {
         RetrofitClient.getRetrofit().createAppointment(appointment).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
+
                 Intent i = new Intent(AppointmentActivity.this, InforAppointmentActivity.class);
                 startActivity(i);
+                finish();
             }
 
             @Override

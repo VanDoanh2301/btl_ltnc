@@ -82,6 +82,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Patient> call, Response<Patient> response) {
                 patient = response.body();
+                if(patient == null) {
+                    Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 patientName = patient.getName();
                 patientId = patient.getPatientId();
                 if(patient == null) {
@@ -100,7 +104,6 @@ public class LoginActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<Patient> call, Throwable t) {
-
                 Toast.makeText(LoginActivity.this, "Call error", Toast.LENGTH_SHORT).show();
             }
         });

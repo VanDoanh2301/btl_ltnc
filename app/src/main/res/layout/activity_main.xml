@@ -185,6 +185,7 @@
                         android:drawableTop="@drawable/baseline_insert_drive_file_24"
                         android:fontFamily="sans-serif"
                         android:text="Quản lý hồ sơ bệnh nhân"
+                        android:textSize="12sp"
                         android:textStyle="normal" />
 
                     <Button
@@ -197,6 +198,7 @@
                         android:drawableTop="@drawable/baseline_card_travel_24"
                         android:fontFamily="sans-serif"
                         android:text="Quản lý phiếu khám bệnh"
+                        android:textSize="12sp"
                         android:textStyle="normal" />
 
                     <Button
@@ -207,6 +209,7 @@
                         android:background="@drawable/custom_button_main"
                         android:drawableTop="@drawable/baseline_speaker_notes_24"
                         android:fontFamily="sans-serif"
+                        android:textSize="12sp"
                         android:text="Hướng dẫn đặt lịch "
                         android:textStyle="normal" />
                 </LinearLayout>

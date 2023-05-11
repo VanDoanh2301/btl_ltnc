@@ -30,7 +30,7 @@
 
     </androidx.appcompat.widget.Toolbar>
     <LinearLayout
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -124,6 +124,7 @@
                 android:focusable="false"
                 android:inputType="none"
                 android:textColorHint="#3F51B5"
+                app:errorEnabled="true"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
