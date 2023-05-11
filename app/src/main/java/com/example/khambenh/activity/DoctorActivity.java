@@ -2,12 +2,14 @@ package com.example.khambenh.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.khambenh.R;
@@ -29,6 +31,7 @@ public class DoctorActivity extends AppCompatActivity {
     private DoctorAdapter adapter;
     private List<Doctor> listDoctor = new ArrayList<>();
     private RecyclerView rcDoctor;
+    private Toolbar toolbar;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +39,9 @@ public class DoctorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctor);
         rcDoctor = findViewById(R.id.rc_doctor);
         searchView = findViewById(R.id.search_view);
+        toolbar = findViewById(R.id.tol_doctor);
 
-
+        toolbar.setNavigationOnClickListener(v -> finish());
         adapter = new DoctorAdapter(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rcDoctor.setLayoutManager(linearLayoutManager);

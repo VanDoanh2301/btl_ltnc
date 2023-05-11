@@ -43,6 +43,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
+            android:src="@drawable/baseline_person_24"
             android:adjustViewBounds="true"
             android:layout_marginEnd="20dp"
             />
@@ -73,6 +74,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
+            android:src="@drawable/baseline_where_to_vote_24"
             android:adjustViewBounds="true"
             android:layout_marginEnd="20dp"
             />
@@ -106,6 +108,7 @@
             android:padding="10dp"
             android:adjustViewBounds="true"
             android:layout_marginEnd="20dp"
+            android:src="@drawable/baseline_calendar_month_24"
             />
     </RelativeLayout>
     <RelativeLayout
@@ -136,6 +139,7 @@
             android:padding="10dp"
             android:adjustViewBounds="true"
             android:layout_marginEnd="20dp"
+            android:src="@drawable/baseline_credit_card_24"
             />
     </RelativeLayout>
     <RelativeLayout
@@ -164,6 +168,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
+            android:src="@drawable/baseline_phone_android_24"
             android:adjustViewBounds="true"
             android:layout_marginEnd="20dp"
             />
@@ -194,6 +199,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
+            android:src="@drawable/baseline_email_24"
             android:adjustViewBounds="true"
             android:layout_marginEnd="20dp"
             />

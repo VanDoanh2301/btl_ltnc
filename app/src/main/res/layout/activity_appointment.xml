@@ -35,92 +35,101 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxBackgroundMode="outline"
-            app:startIconDrawable="@drawable/baseline_person_24"
-            app:endIconMode="clear_text"
-            android:hint="Tên bệnh nhân"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:boxStrokeColor="@color/purple_700"
+            android:hint="Tên bệnh nhân"
+            android:textColorHint="#176BBD"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#0288D1"
             app:boxStrokeErrorColor="@color/purple_200"
 
-            >
+            app:endIconMode="clear_text"
+            app:hintTextColor="#1976D2"
+            app:startIconDrawable="@drawable/baseline_person_24">
+
             <com.google.android.material.textfield.TextInputEditText
-                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:id="@+id/txtInName"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="#3F51B5"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeColor="@color/purple_700"
-            app:boxStrokeErrorColor="@color/purple_200"
-            app:boxBackgroundMode="outline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:startIconDrawable="@drawable/baseline_calendar_month_24"
+            android:layout_margin="10dp"
             android:hint="Ngày khám"
-            android:layout_margin="10dp">
+            android:textColorHint="#0288D1"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/purple_700"
+            app:boxStrokeErrorColor="@color/purple_200"
+            app:hintTextColor="#1976D2"
+            app:startIconDrawable="@drawable/baseline_calendar_month_24">
+
             <com.google.android.material.textfield.TextInputEditText
-                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:id="@+id/edt_ngaykham"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="false"
                 android:inputType="none"
-                android:textSize="20sp"
                 android:textColorHint="#3F51B5"
-                />
+                android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeColor="@color/purple_700"
-            app:boxStrokeErrorColor="@color/purple_200"
-            app:boxBackgroundMode="outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:hint="Chuyên khoa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp">
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-                android:id="@+id/edt_chuyenkhoa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusable="false"
-                android:inputType="none"
-                android:textSize="20sp"
-                android:textColorHint="#3F51B5"
-                android:drawableRight="@drawable/baseline_keyboard_arrow_down_24"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
+            android:textColorHint="#0288D1"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeColor="@color/purple_700"
-            app:boxStrokeErrorColor="@color/purple_200"
             app:boxBackgroundMode="outline"
-            android:hint="Giờ khám"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            app:boxStrokeColor="@color/purple_700"
+            app:boxStrokeErrorColor="@color/purple_200">
+
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_chuyenkhoa"
                 style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-                android:id="@+id/edt_giokham"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableRight="@drawable/baseline_keyboard_arrow_down_24"
                 android:focusable="false"
                 android:inputType="none"
                 android:textColorHint="#3F51B5"
-                android:textSize="20sp"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Giờ khám"
+            android:textColorHint="#0288D1"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/purple_700"
+            app:boxStrokeErrorColor="@color/purple_200">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_giokham"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:drawableRight="@drawable/baseline_keyboard_arrow_down_24"
-                />
+                android:focusable="false"
+                android:inputType="none"
+                android:textColorHint="#3F51B5"
+                android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
@@ -144,27 +153,29 @@
                 android:textSize="20sp"
                  />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Ghi chú"
+            android:textColorHint="#0288D1"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/purple_700"
             app:boxStrokeErrorColor="@color/purple_200"
             app:counterEnabled="true"
-            app:counterMaxLength="200"
-            app:boxBackgroundMode="outline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ghi chú"
-            android:layout_margin="10dp">
+            app:counterMaxLength="200">
+
             <com.google.android.material.textfield.TextInputEditText
-                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:id="@+id/edt_note"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:textColorHint="#3F51B5"
                 android:gravity="top"
-                android:textSize="20sp"
-                 />
+                android:textColorHint="#3F51B5"
+                android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -173,20 +184,22 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <Button
-        android:id="@+id/btnNgayKham"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Đặt lịch"
-        android:textSize="20sp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/custom_button"
-        android:enabled="true"
-        android:layout_marginBottom="10dp"
-        />
+
+        <Button
+            android:id="@+id/btnNgayKham"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_button"
+            android:enabled="true"
+            android:text="Đặt lịch"
+            android:textColorHint="#0288D1"
+            android:textColorLink="#0288D1"
+            android:textSize="20sp" />
     </RelativeLayout>
 
 </LinearLayout>

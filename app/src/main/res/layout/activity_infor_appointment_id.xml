@@ -13,8 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        app:title="Thông tin chi tiết"
-        app:titleMarginStart="80dp" />
+        app:titleMarginStart="80dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Thông tin chi tiết"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
 
 
     <RelativeLayout
@@ -23,7 +33,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/round_back_dark_blue5"
+        android:background="@drawable/custom_stroke"
         >
         <EditText
             android:id="@+id/doctoredt"
@@ -43,6 +53,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
+            android:src="@drawable/baseline_person_24"
             android:adjustViewBounds="true"
             android:layout_marginEnd="20dp"
             />
@@ -53,7 +64,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/round_back_dark_blue5"
+        android:background="@drawable/custom_stroke"
         >
         <EditText
             android:id="@+id/dateedt"
@@ -73,6 +84,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
+            android:src="@drawable/baseline_calendar_month_24"
             android:adjustViewBounds="true"
             android:layout_marginEnd="20dp"
             />
@@ -83,14 +95,14 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/round_back_dark_blue5"
+        android:background="@drawable/custom_stroke"
         >
         <EditText
             android:id="@+id/timeedt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
-            android:hint="Thời gin"
+            android:hint="Thời gian"
             android:paddingStart="50dp"
             android:paddingEnd="20dp"
             android:textSize="16sp"
@@ -104,6 +116,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:padding="10dp"
+            android:src="@drawable/baseline_access_time_24"
             android:adjustViewBounds="true"
             android:layout_marginEnd="20dp"
             />
@@ -114,7 +127,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/round_back_dark_blue5"
+        android:background="@drawable/custom_stroke"
         >
         <EditText
             android:id="@+id/noteedt"
@@ -136,6 +149,7 @@
             android:padding="10dp"
             android:adjustViewBounds="true"
             android:layout_marginEnd="20dp"
+            android:src="@drawable/baseline_sticky_note_2_24"
             />
     </RelativeLayout>
 

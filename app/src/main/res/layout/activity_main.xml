@@ -77,8 +77,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_toRightOf="@+id/img_phone"
                     android:text="Tư vấn chuyên khoa"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
                     android:textColor="@color/white" />
 
                 <TextView
@@ -87,8 +85,13 @@
                     android:layout_below="@+id/txt_tv"
                     android:layout_marginStart="10dp"
                     android:layout_toRightOf="@+id/img_phone"
+                    android:gravity="center"
                     android:layout_marginTop="5dp"
-                    android:text="19098439"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="30dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="190984391"
                     android:textColor="@color/white" />
 
             </RelativeLayout>
@@ -110,9 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:textStyle="bold"
                     android:layout_toRightOf="@+id/img_phoneht"
-                    android:textSize="16sp"
                     android:text="Tư vấn chuyên khoa"
                     android:textColor="@color/white" />
 
@@ -123,7 +124,12 @@
                     android:layout_marginStart="10dp"
                     android:layout_toRightOf="@+id/img_phoneht"
                     android:layout_marginTop="5dp"
-                    android:text="19098439"
+                    android:text="190984392"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="30dp"
+                    android:gravity="center"
                     android:textColor="@color/white" />
             </RelativeLayout>
         </LinearLayout>
@@ -178,7 +184,6 @@
                         android:background="@drawable/custom_button_main"
                         android:drawableTop="@drawable/baseline_insert_drive_file_24"
                         android:fontFamily="sans-serif"
-                        android:padding="5dp"
                         android:text="Quản lý hồ sơ bệnh nhân"
                         android:textStyle="normal" />
 
@@ -191,19 +196,17 @@
                         android:background="@drawable/custom_button_main"
                         android:drawableTop="@drawable/baseline_card_travel_24"
                         android:fontFamily="sans-serif"
-                        android:padding="5dp"
                         android:text="Quản lý phiếu khám bệnh"
                         android:textStyle="normal" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="6dp"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/custom_button_main"
                         android:drawableTop="@drawable/baseline_speaker_notes_24"
                         android:fontFamily="sans-serif"
-                        android:padding="5dp"
                         android:text="Hướng dẫn đặt lịch "
                         android:textStyle="normal" />
                 </LinearLayout>
